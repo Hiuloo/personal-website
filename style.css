@@ -145,3 +145,10 @@ body {
     padding: 20px 15px;
   }
 }
+.avatar {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.avatar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 113, 227, 0.5);
+}
