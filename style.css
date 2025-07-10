@@ -1,252 +1,166 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>宋晓路 - 设计项目经理</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
+/* 基础重置和字体 */
+* {
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0; padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+  background-size: 600% 600%;
+  animation: gradientBG 20s ease infinite;
+  color: white;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+@keyframes gradientBG {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fff;
-      color: #1d1d1f;
-      line-height: 1.6;
-    }
+/* 容器最大宽度 */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
+/* Hero 区 */
+header.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+header.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1581092160618-1e7c2f33e1e2?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+  opacity: 0.15;
+  z-index: -1;
+  filter: brightness(0.6);
+}
+header.hero h1 {
+  font-size: 5rem;
+  font-weight: 800;
+  margin: 0 0 0.3em;
+  letter-spacing: 0.04em;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+header.hero p {
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin: 0.2em 0;
+  max-width: 600px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
 
-    .header {
-      background: linear-gradient(135deg, #f9f9f9, #ffffff);
-      border-bottom: 1px solid #eee;
-      position: relative;
-    }
+/* 按钮 */
+.btn {
+  margin-top: 1.5em;
+  background: white;
+  color: #0071e3;
+  padding: 0.8em 2.4em;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgb(0 113 227 / 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.btn:hover {
+  background-color: #005bb5;
+  color: white;
+  box-shadow: 0 8px 16px rgb(0 91 181 / 0.7);
+}
 
-    .header-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      text-align: center;
-      animation: fadeIn 1s ease-in;
-    }
+/* 作品集区 */
+section.portfolio {
+  background: #fff;
+  color: #111;
+  padding: 60px 20px;
+  text-align: center;
+}
+section.portfolio h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+.cards {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 20px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.card {
+  flex: 0 0 280px;
+  background: #f5f5f7;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgb(0 0 0 / 0.15);
+}
+.card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.card h3 {
+  margin: 0 0 0.5em;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+}
 
-    .avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
+/* Footer */
+footer {
+  background: #f5f5f5;
+  color: #666;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.9rem;
+}
+footer .social-links a {
+  margin: 0 15px;
+  color: #888;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+footer .social-links a:hover {
+  color: #0071e3;
+}
 
-    .avatar:hover {
-      transform: scale(1.05);
-    }
-
-    .intro h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-    }
-
-    .subtext {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: #666;
-    }
-
-    .buttons {
-      margin-top: 20px;
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary, .btn-secondary {
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background-color: #0071e3;
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background-color: #005bb5;
-    }
-
-    .btn-secondary {
-      background-color: #f2f2f2;
-      color: #333;
-    }
-
-    .btn-secondary:hover {
-      background-color: #ddd;
-    }
-
-    .section {
-      margin-bottom: 60px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 1s ease forwards;
-    }
-
-    .section:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    .section:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-
-    .section:nth-child(4) {
-      animation-delay: 0.6s;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .section h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      border-left: 4px solid #0071e3;
-      padding-left: 12px;
-      margin-bottom: 16px;
-    }
-
-    .honors ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .honors li {
-      padding-left: 10px;
-      border-left: 2px solid #ccc;
-      margin-bottom: 10px;
-    }
-
-    .contact form {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      max-width: 500px;
-    }
-
-    .contact input, .contact textarea {
-      padding: 14px;
-      border-radius: 12px;
-      border: 1.5px solid #ccc;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
-      font-family: inherit;
-    }
-
-    .contact input:focus, .contact textarea:focus {
-      border-color: #0071e3;
-      outline: none;
-    }
-
-    .footer {
-      background-color: #f5f5f5;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    .social-links {
-      margin-bottom: 10px;
-    }
-
-    .social-links a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #888;
-      transition: color 0.3s ease;
-    }
-
-    .social-links a:hover {
-      color: #0071e3;
-    }
-  </style>
-</head>
-<body>
-  <header class="header">
-    <div class="container header-container">
-      <img src="avatar.jpg" alt="宋晓路头像" class="avatar" />
-      <div class="intro">
-        <h1>宋晓路</h1>
-        <p class="subtext">康养设计项目经理</p>
-        <p>工程管理专业 / 华诚博远工程技术集团 康养设计研究院</p>
-        <div class="buttons">
-          <a href="#contact" class="btn-primary">联系我</a>
-          <a href="#portfolio" class="btn-secondary">查看作品集</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="section honors">
-      <h2>社会职务与荣誉</h2>
-      <ul>
-        <li>北京社会管理职业学院 老年社会工作者（2023起）</li>
-        <li>贵州省养老服务行业协会专家组 设计项目经理（2023起）</li>
-        <li>中国地产华表奖医康养设计与运营委员会 设计项目经理（2022起）</li>
-        <li>人力资源和社会保障部 老年能力评估专员（2021起）</li>
-        <li>清华大学建筑学院「适老居住空间与环境设计」学员（2021届）</li>
-      </ul>
-    </section>
-
-    <section class="section portfolio" id="portfolio">
-      <h2>作品集展示</h2>
-      <p>（此处可添加作品图像或链接）</p>
-    </section>
-
-    <section class="section contact" id="contact">
-      <h2>如何联系到我</h2>
-      <form>
-        <input type="text" placeholder="姓名" required />
-        <input type="email" placeholder="邮箱" required />
-        <textarea placeholder="留言" rows="5" required></textarea>
-        <button type="submit" class="btn-primary">提交</button>
-      </form>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="social-links">
-      <a href="https://github.com/Hiuloo" target="_blank">GitHub</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">微博</a>
-    </div>
-    <p>&copy; 2024 宋晓路. 保留所有权利.</p>
-  </footer>
-</body>
-</html>
+/* 响应式 */
+@media (max-width: 600px) {
+  header.hero h1 {
+    font-size: 3rem;
+  }
+  header.hero p {
+    font-size: 1rem;
+  }
+  .cards {
+    gap: 12px;
+  }
+  .card {
+    flex: 0 0 220px;
+  }
+}
