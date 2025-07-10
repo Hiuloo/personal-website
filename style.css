@@ -34,12 +34,13 @@ body {
   gap: 24px;
 }
 .avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+  width: 140px;      /* 宽度稍大 */
+  height: 100px;     /* 高度稍小 */
+  border-radius: 70% / 50%;  /* 形成椭圆，上下扁 */
   object-fit: cover;
-  box-shadow: 0 4px 15px rgb(0 0 0 / 0.12);
-  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
 }
 .intro h1 {
   font-weight: 700;
