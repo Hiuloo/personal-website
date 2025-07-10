@@ -2,58 +2,150 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>宋晓路 - 设计项目经理</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>宋晓路</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #1d1d1f;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+      color: #fff;
+      background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+      background-size: 600% 600%;
+      animation: gradientBG 15s ease infinite;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1581092160618-1e7c2f33e1e2?auto=format&fit=crop&w=1600&q=80') no-repeat center center / cover;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 0.2rem 0;
+    }
+
+    .info-line {
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .section:nth-of-type(2) {
+      animation-delay: 0.5s;
+    }
+
+    .section:nth-of-type(3) {
+      animation-delay: 1s;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      color: #444;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #f5f5f5;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .social-links a {
+      margin: 0 12px;
+      color: #888;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      color: #0071e3;
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <div class="container header-container">
-      <img src="avatar.jpg" alt="宋晓路头像" class="avatar" />
-      <div class="intro">
-        <h1>宋晓路</h1>
-        <p class="subtext">康养设计项目经理</p>
-        <p>工程管理专业 / 华诚博远工程技术集团 康养设计研究院</p>
-        <div class="buttons">
-          <a href="#contact" class="btn-primary">联系我</a>
-          <a href="#portfolio" class="btn-secondary">查看作品集</a>
-        </div>
-      </div>
-    </div>
-  </header>
+  <section class="hero">
+    <h1>宋晓路</h1>
+    <p>生肖：牛｜星座：金牛座</p>
+    <p>康养设计项目负责人</p>
+    <p>华诚博远工程技术集团 康养设计研究院</p>
+    <div class="info-line">Design Inspired by Apple</div>
+  </section>
 
-  <main class="container">
-    <section class="section honors">
-      <h2>社会职务与荣誉</h2>
-      <ul>
-        <li>北京社会管理职业学院 老年社会工作者（2023起）</li>
-        <li>贵州省养老服务行业协会专家组 设计项目经理（2023起）</li>
-        <li>中国地产华表奖医康养设计与运营委员会 设计项目经理（2022起）</li>
-        <li>人力资源和社会保障部 老年能力评估专员（2021起）</li>
-        <li>清华大学建筑学院「适老居住空间与环境设计」学员（2021届）</li>
-      </ul>
-    </section>
+  <section class="section">
+    <h2>我的理念</h2>
+    <p>用专业设计提升长者生活品质。聚焦康养空间与人性关怀的融合。</p>
+  </section>
 
-    <section class="section portfolio" id="portfolio">
-      <h2>作品集展示</h2>
-      <p>（此处可添加作品图像或链接）</p>
-    </section>
-
-    <section class="section contact" id="contact">
-      <h2>如何联系到我</h2>
-      <form>
-        <input type="text" placeholder="姓名" required />
-        <input type="email" placeholder="邮箱" required />
-        <textarea placeholder="留言" rows="5" required></textarea>
-        <button type="submit" class="btn-primary">提交</button>
-      </form>
-    </section>
-  </main>
+  <section class="section">
+    <h2>正在构建</h2>
+    <p>更多内容和作品即将上线，敬请期待。</p>
+  </section>
 
   <footer class="footer">
     <div class="social-links">
-      <a href="https://github.com/Hiuloo" target="_blank">GitHub</a>
+      <a href="#">GitHub</a>
       <a href="#">LinkedIn</a>
       <a href="#">微博</a>
     </div>
