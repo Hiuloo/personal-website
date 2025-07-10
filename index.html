@@ -13,8 +13,12 @@
       <img src="avatar.jpg" alt="宋晓路头像" class="avatar" />
       <div class="intro">
         <h1>宋晓路</h1>
-        <p>工程管理专业</p>
-        <p>华诚博远工程技术集团 康养设计研究院 项目负责人</p>
+        <p class="subtext">康养设计项目经理</p>
+        <p>工程管理专业 / 华诚博远工程技术集团 康养设计研究院</p>
+        <div class="buttons">
+          <a href="#contact" class="btn-primary">联系我</a>
+          <a href="#portfolio" class="btn-secondary">查看作品集</a>
+        </div>
       </div>
     </div>
   </header>
@@ -31,23 +35,28 @@
       </ul>
     </section>
 
-    <section class="section portfolio">
+    <section class="section portfolio" id="portfolio">
       <h2>作品集展示</h2>
       <p>（此处可添加作品图像或链接）</p>
     </section>
 
-    <section class="section contact">
+    <section class="section contact" id="contact">
       <h2>如何联系到我</h2>
       <form>
-        <input type="text" placeholder="宋晓路" required />
-        <input type="email" placeholder="song168844@gmail.com" required />
+        <input type="text" placeholder="姓名" required />
+        <input type="email" placeholder="邮箱" required />
         <textarea placeholder="留言" rows="5" required></textarea>
-        <button type="submit">提交</button>
+        <button type="submit" class="btn-primary">提交</button>
       </form>
     </section>
   </main>
 
   <footer class="footer">
+    <div class="social-links">
+      <a href="https://github.com/Hiuloo" target="_blank">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">微博</a>
+    </div>
     <p>&copy; 2024 宋晓路. 保留所有权利.</p>
   </footer>
 </body>
