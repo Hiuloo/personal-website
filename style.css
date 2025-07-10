@@ -1,0 +1,147 @@
+/* 重置和基础 */
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #fff;
+  color: #1d1d1f;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 容器宽度控制 */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* 头部 */
+.header {
+  background: #fff;
+  border-bottom: 1px solid #e3e3e3;
+  padding: 40px 0 20px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgb(0 0 0 / 0.12);
+  flex-shrink: 0;
+}
+.intro h1 {
+  font-weight: 700;
+  font-size: 2.8rem;
+  margin-bottom: 8px;
+}
+.intro p {
+  font-weight: 300;
+  color: #6e6e73;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+/* 各个版块 */
+.section {
+  margin-top: 80px;
+}
+.section h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 24px;
+  border-left: 4px solid #0071e3;
+  padding-left: 12px;
+  color: #0071e3;
+}
+
+/* 荣誉列表 */
+.honors ul {
+  list-style: none;
+  color: #333;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  border-left: 2px solid #ccc;
+  padding-left: 20px;
+}
+.honors li {
+  margin-bottom: 14px;
+}
+
+/* 联系表单 */
+.contact form {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.contact input,
+.contact textarea {
+  padding: 14px 16px;
+  font-size: 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 12px;
+  transition: border-color 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  resize: vertical;
+}
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: #0071e3;
+  box-shadow: 0 0 8px rgba(0, 113, 227, 0.4);
+}
+.contact button {
+  background: #0071e3;
+  border: none;
+  color: white;
+  font-weight: 700;
+  padding: 14px;
+  font-size: 1.1rem;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 113, 227, 0.6);
+}
+.contact button:hover {
+  background: #005bb5;
+  box-shadow: 0 8px 18px rgba(0, 91, 181, 0.8);
+}
+
+/* 页脚 */
+.footer {
+  margin-top: auto;
+  background: #f8f8f8;
+  text-align: center;
+  padding: 20px 10px;
+  color: #999;
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .intro h1 {
+    font-size: 2.2rem;
+  }
+  .container {
+    padding: 20px 15px;
+  }
+}
